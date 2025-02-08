@@ -1,6 +1,6 @@
-package org.akka.essentials.java.dispatcher.example.PinnedDispatcher;
+package org.akka.essentials.java.study.example.PinnedDispatcher;
 
-import org.akka.essentials.java.dispatcher.MsgEchoActor;
+import org.akka.essentials.java.study.MsgEchoActor;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
