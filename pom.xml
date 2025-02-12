@@ -10,7 +10,7 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <modules>
-<!--        <module>ActorMessagingExample</module>-->
+        <module>ActorMessagingExample</module>
 <!--        <module>AkkaSerializerExample</module>-->
 <!--        <module>GridPatternExample</module>-->
 <!--        <module>AkkaCustomExtension</module>-->
@@ -29,7 +29,7 @@
 <!--        <module>AkkaSTMExample</module>-->
 <!--        <module>FirstAkkaApplication</module>-->
 <!--        <module>AkkaPersistentExample</module>-->
-        <module>AkkaConsistentHashExample</module>
+<!--        <module>AkkaConsistentHashExample</module>-->
     </modules>
 
 </project>

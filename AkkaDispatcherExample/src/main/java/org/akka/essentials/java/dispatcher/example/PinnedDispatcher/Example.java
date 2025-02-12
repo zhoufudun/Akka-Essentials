@@ -1,6 +1,6 @@
-package org.akka.essentials.java.study.example.PinnedDispatcher;
+package org.akka.essentials.java.dispatcher.example.PinnedDispatcher;
 
-import org.akka.essentials.java.study.MsgEchoActor;
+import org.akka.essentials.java.dispatcher.example.MsgEchoActor;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
@@ -20,9 +20,9 @@ public class Example {
 		
 		ActorRef actor = _system.actorOf(new Props(MsgEchoActor.class)
 				.withDispatcher("pinnedDispatcher").withRouter(
-						new RoundRobinRouter(5)));
+						new RoundRobinRouter(2)));
 
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < 16; i++) {
 			actor.tell(i);
 		}
 

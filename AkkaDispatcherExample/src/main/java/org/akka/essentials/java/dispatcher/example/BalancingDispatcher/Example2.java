@@ -1,6 +1,5 @@
-package org.akka.essentials.java.study.example.BalancingDispatcher;
+package org.akka.essentials.java.dispatcher.example.BalancingDispatcher;
 
-import org.akka.essentials.java.study.MsgEchoActor;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
@@ -8,6 +7,7 @@ import akka.actor.Props;
 import akka.routing.RoundRobinRouter;
 
 import com.typesafe.config.ConfigFactory;
+import org.akka.essentials.java.dispatcher.example.MsgEchoActor;
 
 public class Example2 {
 	/**

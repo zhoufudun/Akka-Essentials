@@ -1,6 +1,4 @@
-package org.akka.essentials.java.study.example.Dispatcher;
-
-import org.akka.essentials.java.study.MsgEchoActor;
+package org.akka.essentials.java.dispatcher.example.Dispatcher;
 
 import com.typesafe.config.ConfigFactory;
 
@@ -8,6 +6,7 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.routing.RoundRobinRouter;
+import org.akka.essentials.java.dispatcher.example.MsgEchoActor;
 
 /**
  * Hello world!
@@ -20,9 +19,9 @@ public class Example1 {
 		
 		ActorRef actor = _system.actorOf(new Props(MsgEchoActor.class)
 				.withDispatcher("defaultDispatcher").withRouter(
-						new RoundRobinRouter(5)));
+						new RoundRobinRouter(3)));
 
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < 10; i++) {
 			actor.tell(i);
 		}
 

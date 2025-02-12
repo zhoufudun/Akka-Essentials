@@ -1,4 +1,4 @@
-package org.akka.essentials.java.study;
+package org.akka.essentials.java.dispatcher.example;
 
 import akka.actor.UntypedActor;
 

@@ -6,6 +6,7 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import com.typesafe.config.ConfigFactory;
+import org.junit.jupiter.api.Test;
 
 public class ConsistentHashingPoolTest {
     public static void main(String[] args) {
