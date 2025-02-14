@@ -14,10 +14,9 @@ public class LocalNodeApplication {
 	public static void main(String[] args) throws Exception {
 		ActorSystem _system = ActorSystem.create("LocalNodeApp",ConfigFactory
 				.load().getConfig("LocalSys"));
-		ActorRef localActor = _system.actorOf(new Props(LocalActor.class));
-		localActor.tell("Hello");
+		ActorRef localActor = _system.actorOf(Props.create(LocalActor.class));
+		localActor.tell("Hello",null);
 
 		Thread.sleep(5000);
-		_system.shutdown();
 	}
 }

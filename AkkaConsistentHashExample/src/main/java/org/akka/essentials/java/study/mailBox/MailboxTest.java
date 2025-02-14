@@ -2,9 +2,9 @@ package org.akka.essentials.java.study.mailBox;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import akka.actor.DeadLetter;
 import akka.actor.Props;
 import com.typesafe.config.ConfigFactory;
-import org.akka.essentials.java.study.MsgEchoActor;
 import org.junit.Test;
 
 /**
@@ -14,13 +14,13 @@ import org.junit.Test;
  * 优先级队列    （PriorityMailbox）	            让高优先级的消息优先处理
  * 单独队列     （UnboundedDequeBasedMailbox）	适用于 Stash 操作（允许 Actor 重新排序消息）
  */
-public class mailboxTest {
+public class MailboxTest {
     /**
      *
      * 配置
      * my-mailbox {
      *     mailbox-type = "akka.dispatch.BoundedMailbox"
-     *     mailbox-capacity = 50   # 最大消息数
+     *     mailbox-capacity = 50   # 最大消息数，超过该值，消息将会被丢弃到 deadLetters 中
      *     mailbox-push-timeout-time = 10s  # 发送超时
      * }
      */
@@ -31,13 +31,16 @@ public class mailboxTest {
         ActorSystem system = ActorSystem.create("test",
                 ConfigFactory.load().getConfig("MyDispatcherExample"));
 
+        system.eventStream().subscribe(system.actorOf(Props.create(DeadLetterActor.class)), DeadLetter.class);
+
         ActorRef actor = system.actorOf(
                 Props.create(MailBoxActor.class)
-                        .withMailbox("my-mailbox")  // 绑定自定义 Mailbox
-        );
+                        .withDispatcher("OneFixDispatcher")
+                        .withMailbox("my-mailbox"));
+                // 绑定自定义 Mailbox
 
         for (int i = 10; i  > 0; i--) {
-            actor.tell(i, null); // 按照优先级顺序，输出的顺序是：1，2，3，4，5，6，7，8，9，10
+            actor.tell(i, null); // 如果使用MyPriorityMailbox，则消息按照优先级顺序，输出的顺序是：1，2，3，4，5，6，7，8，9，10
         }
 
 

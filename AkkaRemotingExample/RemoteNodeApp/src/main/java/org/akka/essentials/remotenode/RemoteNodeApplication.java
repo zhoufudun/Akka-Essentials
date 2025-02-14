@@ -2,8 +2,8 @@ package org.akka.essentials.remotenode;
 
 import akka.actor.ActorSystem;
 import akka.actor.Props;
-import akka.kernel.Bootable;
 
+import akka.kernel.Bootable;
 import com.typesafe.config.ConfigFactory;
 
 public class RemoteNodeApplication implements Bootable {

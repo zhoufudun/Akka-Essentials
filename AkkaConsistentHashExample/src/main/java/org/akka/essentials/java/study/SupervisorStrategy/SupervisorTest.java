@@ -3,17 +3,12 @@ package org.akka.essentials.java.study.SupervisorStrategy;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
-import akka.actor.OneForOneStrategy;
-import akka.actor.SupervisorStrategy;
-import akka.japi.pf.DeciderBuilder;
 import akka.testkit.javadsl.TestKit;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import scala.concurrent.duration.Duration;
 
 public class SupervisorTest {
 

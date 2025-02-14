@@ -8,6 +8,12 @@ import akka.actor.Props;
 import akka.routing.DefaultResizer;
 import akka.routing.RandomRouter;
 
+/**
+ * 创建一个名为CustomRouteeRouterExample的ActorSystem。
+ * 定义一个DefaultResizer，设置路由实例的最小数量为2，最大数量为15。
+ * 使用Props创建一个RandomRouter，并将MsgEchoActor与之关联。
+ * 循环发送10条消息给RandomRouter，这些消息会被随机分发给路由中的Actor实例
+ */
 public class Example3 {
 
 	/**
