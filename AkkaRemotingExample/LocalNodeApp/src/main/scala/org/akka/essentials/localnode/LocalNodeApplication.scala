@@ -9,7 +9,7 @@ object LocalNodeApplication {
     // load the configuration
     val config = ConfigFactory.load().getConfig("LocalSys")
     val system = ActorSystem("LocalNodeApp", config)
-    val clientActor = system.actorOf(Props[LocalActor])
+    val clientActor = system.actorOf(Props[ClientActor])
     clientActor ! "Hello"
     Thread.sleep(4000)
     system.shutdown()

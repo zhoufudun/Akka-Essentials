@@ -9,7 +9,7 @@ class RemoteNodeApplication extends Bootable {
     .load().getConfig("RemoteSys"))
 
   def startup = {
-    system.actorOf(Props[RemoteActor], name = "remoteActor")
+    system.actorOf(Props[ServerActor], name = "remoteActor")
   }
 
   def shutdown = {
